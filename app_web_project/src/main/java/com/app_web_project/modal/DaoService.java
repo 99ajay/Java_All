@@ -45,4 +45,13 @@ public class DaoService {
 			e.printStackTrace();
 		}
 	}
+	public ResultSet getAllStudent() {
+		try {
+		ResultSet result = stmnt.executeQuery("select * from registration");
+		return result;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
