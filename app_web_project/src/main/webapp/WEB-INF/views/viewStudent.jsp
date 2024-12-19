@@ -15,18 +15,22 @@
 		<th>name</th>
 		<th>email</th>
 		<th>mobile</th>
+		<th>delete</th>
 		
 	</tr>
 	<%
-	ResultSet res = (ResultSet)request.getAttribute("result");
-	while(res.next()){
+	ResultSet result = (ResultSet)request.getAttribute("result");
+	while(result.next()){
 	%>
 	<tr>
-	<td><%=res.getString(1) %></td>
- 	<td><%=res.getString(2) %></td>
-	<td><%=res.getString(3) %></td>
+	<td><%=result.getString(1) %></td>
+ 	<td><%=result.getString(2) %></td>
+	<td><%=result.getString(3) %></td>
+	<td><a href="deleteStudent?email=<%=result.getString(2)%>">delete</a></td>
+	
+	
 	</tr>
-	<%} %>
+	<%}%>
 	</table>
 </body>
 </html>

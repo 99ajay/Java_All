@@ -54,4 +54,13 @@ public class DaoService {
 		}
 		return null;
 	}
+	
+	public void deleteStudent(String email) {
+		try {
+		stmnt.executeUpdate("Delete from registration where email='"+email+"'");}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	 
+	}
 }
