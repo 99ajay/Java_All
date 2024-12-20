@@ -16,6 +16,7 @@
 		<th>email</th>
 		<th>mobile</th>
 		<th>delete</th>
+		<th>update</th>
 		
 	</tr>
 	<%
@@ -27,6 +28,8 @@
  	<td><%=result.getString(2) %></td>
 	<td><%=result.getString(3) %></td>
 	<td><a href="deleteStudent?email=<%=result.getString(2)%>">delete</a></td>
+	<td><a href="updateStudent?email=<%=result.getString(2)%>&mobile=<%=result.getString(3)%>">update</a></td>
+	
 	
 	
 	</tr>

@@ -63,4 +63,12 @@ public class DaoService {
 		}
 	 
 	}
+	public void updateStudent(String email,String mobile) {
+		try {
+			stmnt.executeUpdate("update registration set mobile='"+mobile+"' where email='"+email+"'");
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
