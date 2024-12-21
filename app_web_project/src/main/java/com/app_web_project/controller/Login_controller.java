@@ -36,6 +36,8 @@ public class Login_controller extends HttpServlet {
 			//when i login i created a session object
 			HttpSession session = request.getSession(true);
 			session.setAttribute("email", email);
+			session.setMaxInactiveInterval(5);
+
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/addRegistration.jsp");
 			rd.forward(request, response);
  		}

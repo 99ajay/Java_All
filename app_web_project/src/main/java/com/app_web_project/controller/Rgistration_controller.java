@@ -26,8 +26,11 @@ public class Rgistration_controller extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		try {
-		 HttpSession session = request.getSession(false);
+			 HttpSession session = request.getSession(false);
+			 session.setMaxInactiveInterval(5);
+
 		 if(session.getAttribute("email")!=null) {
 		 String name = request.getParameter("name");
 		 String email = request.getParameter("email");
