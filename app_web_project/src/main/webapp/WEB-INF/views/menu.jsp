@@ -8,5 +8,9 @@
 <body>
    <a href="add_Registration">Add student</a>
    <a href="list_Student">View student</a>
+   
+   <form action="LogoutController" method="post">
+   <input type="submit" value = "logout" />
+   </form>
 </body>
 </html>

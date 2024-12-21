@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 import com.app_web_project.modal.DaoService;
@@ -28,7 +30,12 @@ public class Login_controller extends HttpServlet {
 		DaoService service = new DaoService();
 		service.connectdb();
 		boolean status = service.verifyLogin(email,password);
+
+		
 		if(status) {
+			//when i login i created a session object
+			HttpSession session = request.getSession(true);
+			session.setAttribute("email", email);
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/addRegistration.jsp");
 			rd.forward(request, response);
  		}
