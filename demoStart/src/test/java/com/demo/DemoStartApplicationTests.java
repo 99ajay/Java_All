@@ -23,18 +23,24 @@ class DemoStartApplicationTests {
 		repository.save(s);
 	}
 	
+//	@Test
+//	void deleteStudent() {
+//		repository.deleteById(1L);
+//	}
+//	@Test
+//	void updateRecord() {
+//		Student s = new Student();
+//		s.setId(2L);
+//		s.setName("ajay");
+//		s.setEmail("ajay@gmail.com");
+//		s.setMobile("8577871550");
+//		repository.save(s);
+//	}
+	
+	//Explore JUNIT Annotation
 	@Test
-	void deleteStudent() {
-		repository.deleteById(1L);
-	}
-	@Test
-	void updateRecord() {
-		Student s = new Student();
-		s.setId(2L);
-		s.setName("ajay");
-		s.setEmail("ajay@gmail.com");
-		s.setMobile("8577871550");
-		repository.save(s);
+	public void test1() {
+		System.out.println("from test");
 	}
 
 }
