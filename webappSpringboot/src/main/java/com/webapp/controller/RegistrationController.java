@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.webapp.dto.RegistrationDto;
 import com.webapp.entity.Registration;
 import com.webapp.service.RegistrationService;
+import com.webapp.util.EmailService;
 
 @Controller
 public class RegistrationController {
@@ -26,6 +27,10 @@ public class RegistrationController {
 	
 	@Autowired
 	private RegistrationService registrationService;
+	
+	@Autowired
+	private EmailService emailService;
+	
 	@RequestMapping("/view")
 	public String viewCreateRegistrationPage() {
 		return "create_registration";
@@ -76,6 +81,7 @@ public class RegistrationController {
 		registration.setMobile(registrationDto.getMobile());
 		model.addAttribute("msg","record is saved!");
 		registrationService.createRegistration(registration);
+		emailService.sendEmail(registrationDto.getEmail(), "Test", "Test");
 
 		return "create_registration";
 	}
