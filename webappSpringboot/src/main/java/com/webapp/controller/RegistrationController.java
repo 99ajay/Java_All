@@ -1,7 +1,10 @@
 package com.webapp.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -66,11 +69,12 @@ public class RegistrationController {
 	
 	
 	@RequestMapping("/saveReg")
-	public String getRegistrations(@ModelAttribute RegistrationDto registrationDto) {
+	public String getRegistrations(@ModelAttribute RegistrationDto registrationDto, ModelMap model) {
 		Registration registration = new Registration();
 		registration.setFirstName(registrationDto.getFirstName());
 		registration.setEmail(registrationDto.getEmail());
 		registration.setMobile(registrationDto.getMobile());
+		model.addAttribute("msg","record is saved!");
 		registrationService.createRegistration(registration);
 
 		return "create_registration";
@@ -78,7 +82,9 @@ public class RegistrationController {
 	
 	
 	@RequestMapping("/listAll")
-	public String getAllRegistrations() {
+	public String getAllRegistrations(ModelMap model) {
+ 		List<Registration> registrations = registrationService.getAllRegistrations();
+ 		model.addAttribute("registrations",registrations);
 		return "list_Registrations";
 	}
 }

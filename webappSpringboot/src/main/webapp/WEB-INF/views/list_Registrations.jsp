@@ -9,10 +9,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:out value="100"></c:out>
-	<c:set var="income" value="${4000*4}" />
-	      <c:if test = "${income > 2000}">
-         <p>My income is:  <c:out value = "${income}"/><p>
-      </c:if>
+<table>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Mobile</th>
+</tr>
+<c:forEach items="${registrations}" var = "registration">
+<tr>
+<td>${registration.firstName}</td>
+<td>${registration.email}</td>
+<td>${registration.mobile}</td>
+
+</tr>
+</c:forEach>
+
+</table>
 </body>
 </html>

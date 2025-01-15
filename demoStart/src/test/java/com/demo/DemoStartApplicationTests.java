@@ -23,7 +23,7 @@ class DemoStartApplicationTests {
 		repository.save(s);
 	}
 	
-//	@Test
+//	@Test 
 //	void deleteStudent() {
 //		repository.deleteById(1L);
 //	}
