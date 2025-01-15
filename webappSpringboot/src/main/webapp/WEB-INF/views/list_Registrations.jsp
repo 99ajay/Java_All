@@ -10,5 +10,9 @@
 </head>
 <body>
 	<c:out value="100"></c:out>
+	<c:set var="income" value="${4000*4}" />
+	      <c:if test = "${income > 2000}">
+         <p>My income is:  <c:out value = "${income}"/><p>
+      </c:if>
 </body>
 </html>
