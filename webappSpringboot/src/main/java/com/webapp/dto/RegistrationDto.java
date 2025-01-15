@@ -2,14 +2,14 @@ package com.webapp.dto;
 
 //POJO CLASS 
 public class RegistrationDto {
-private String name;
+private String firstName;
 private String email;
 private String mobile;
-public String getName() {
-	return name;
+public String getFirstName() {
+	return firstName;
 }
-public void setName(String name) {
-	this.name = name;
+public void setFirstName(String firstName) {
+	this.firstName = firstName;
 }
 public String getEmail() {
 	return email;

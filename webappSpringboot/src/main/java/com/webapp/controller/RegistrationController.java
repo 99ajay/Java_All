@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.webapp.dto.RegistrationDto;
 import com.webapp.entity.Registration;
 import com.webapp.service.RegistrationService;
 
@@ -45,20 +46,39 @@ public class RegistrationController {
 //	}
 	
 	
+//	@RequestMapping("/saveReg")
+//	public String getRegistrations(
+//			@RequestParam("firstName") String firstName,
+//			@RequestParam("email") String email,
+//			@RequestParam("mobile") String mobile
+//			) {
+//		Registration registration = new Registration();
+//		registration.setFirstName(firstName);
+//		registration.setEmail(email);
+//		registration.setMobile(mobile);
+//		
+//		registrationService.createRegistration(registration);
+//		
+//
+//		return "create_registration";
+//	}
+	
+	
+	
 	@RequestMapping("/saveReg")
-	public String getRegistrations(
-			@RequestParam("firstName") String firstName,
-			@RequestParam("email") String email,
-			@RequestParam("mobile") String mobile
-			) {
+	public String getRegistrations(@ModelAttribute RegistrationDto registrationDto) {
 		Registration registration = new Registration();
-		registration.setFirstName(firstName);
-		registration.setEmail(email);
-		registration.setMobile(mobile);
-		
+		registration.setFirstName(registrationDto.getFirstName());
+		registration.setEmail(registrationDto.getEmail());
+		registration.setMobile(registrationDto.getMobile());
 		registrationService.createRegistration(registration);
-		
 
 		return "create_registration";
+	}
+	
+	
+	@RequestMapping("/listAll")
+	public String getAllRegistrations() {
+		return "list_Registrations";
 	}
 }

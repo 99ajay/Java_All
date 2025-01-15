@@ -14,4 +14,5 @@ public class RegistrationService {
 	public void createRegistration(Registration registration) {
 		 registrationRepository.save(registration);
 	}
+	
 }

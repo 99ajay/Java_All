@@ -6,5 +6,4 @@ import com.webapp.entity.Registration;
 
 public interface RegistrationRepository extends JpaRepository<Registration,Long>{
 	
-
 }
