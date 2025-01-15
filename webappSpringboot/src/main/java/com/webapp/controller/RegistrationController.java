@@ -87,4 +87,14 @@ public class RegistrationController {
  		model.addAttribute("registrations",registrations);
 		return "list_Registrations";
 	}
+	@RequestMapping("/deleteReg")
+	public String deleteRegistration(@RequestParam("id") long id,
+			ModelMap model) {
+		registrationService.deleteRegistrationById(id);
+		List<Registration> registrations = registrationService.getAllRegistrations();
+ 		model.addAttribute("registrations",registrations);
+		return "list_Registrations";
+	}
+	
+	@RequestMapping("/getRegById")
 }

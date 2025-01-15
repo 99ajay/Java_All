@@ -14,12 +14,17 @@
 <th>Name</th>
 <th>Email</th>
 <th>Mobile</th>
+<th>Delete</th>
+<th>Update</th>
 </tr>
 <c:forEach items="${registrations}" var = "registration">
 <tr>
 <td>${registration.firstName}</td>
 <td>${registration.email}</td>
 <td>${registration.mobile}</td>
+<td><a href="deleteReg?id=${registration.id}">delete</a></td>
+<td><a href="getRegById?id=${registration.id}">Update</a></td>
+
 
 </tr>
 </c:forEach>
