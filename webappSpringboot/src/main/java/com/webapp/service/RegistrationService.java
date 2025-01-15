@@ -31,4 +31,8 @@ public class RegistrationService {
 	    Registration registration = opReg.get();
 	    return registration;
 	}
+
+	public void updateRegistration(Registration registration) {
+		 registrationRepository.save(registration);
+	}
 }

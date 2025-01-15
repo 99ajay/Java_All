@@ -97,4 +97,18 @@ public class RegistrationController {
 	}
 	
 	@RequestMapping("/getRegById")
+	public String getRegistrationById(@RequestParam long id,ModelMap model) {
+		Registration reg = registrationService.getRegById(id);
+		model.addAttribute("reg",reg);
+		return "update_registration";
+	}
+	
+	@RequestMapping("/updateReg")
+	public String updateRegistration(Registration registration,ModelMap model) {
+		registrationService.updateRegistration(registration);
+		List<Registration> registrations = registrationService.getAllRegistrations();
+ 		model.addAttribute("registrations",registrations);
+		return "list_Registrations";
+		
+	}
 }
